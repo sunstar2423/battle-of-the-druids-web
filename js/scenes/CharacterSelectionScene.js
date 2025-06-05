@@ -178,8 +178,12 @@ class CharacterSelectionScene extends Phaser.Scene {
         this.selectedCharacter = character;
         this.inputActive = true;
         
-        // Update instructions
-        this.instructionText.setText('Enter your name and press Enter:');
+        // Update instructions (mobile-friendly)
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const instructionText = isMobile ? 
+            'Tap the text box below to enter your name:' : 
+            'Enter your name and press Enter:';
+        this.instructionText.setText(instructionText);
         
         // Create name input visualization
         this.createNameInputBox();
@@ -201,7 +205,8 @@ class CharacterSelectionScene extends Phaser.Scene {
         
         // Input box background
         this.nameInputBox = this.add.rectangle(width / 2, 520, 300, 40, COLORS.WHITE)
-            .setStrokeStyle(2, COLORS.BLACK);
+            .setStrokeStyle(2, COLORS.BLACK)
+            .setInteractive();
         
         // Input text
         this.nameInputText = this.add.text(width / 2, 520, this.playerName, {
@@ -209,6 +214,9 @@ class CharacterSelectionScene extends Phaser.Scene {
             fontFamily: 'Arial',
             fill: '#000000'
         }).setOrigin(0.5);
+        
+        // Mobile keyboard support
+        this.setupMobileInput();
         
         // Blinking cursor
         this.cursor = this.add.text(width / 2 + this.nameInputText.width / 2 + 5, 520, '|', {
@@ -224,6 +232,53 @@ class CharacterSelectionScene extends Phaser.Scene {
             duration: 500,
             yoyo: true,
             repeat: -1
+        });
+    }
+    
+    setupMobileInput() {
+        // Create hidden HTML input for mobile keyboard
+        if (!this.mobileInput) {
+            this.mobileInput = document.createElement('input');
+            this.mobileInput.type = 'text';
+            this.mobileInput.style.position = 'absolute';
+            this.mobileInput.style.left = '-9999px';
+            this.mobileInput.style.opacity = '0';
+            this.mobileInput.style.pointerEvents = 'none';
+            this.mobileInput.maxLength = 20;
+            this.mobileInput.placeholder = 'Enter character name';
+            document.body.appendChild(this.mobileInput);
+            
+            // Handle input changes
+            this.mobileInput.addEventListener('input', (e) => {
+                this.playerName = e.target.value;
+                this.updateNameInput();
+            });
+            
+            // Handle enter key
+            this.mobileInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && this.playerName.trim().length > 0) {
+                    this.createCharacter();
+                }
+            });
+        }
+        
+        // Click on input box to focus mobile input
+        this.nameInputBox.on('pointerdown', () => {
+            if (this.inputActive) {
+                this.mobileInput.value = this.playerName;
+                this.mobileInput.focus();
+                console.log('📱 Mobile input focused for keyboard');
+            }
+        });
+        
+        // Also make the text clickable
+        this.nameInputText.setInteractive();
+        this.nameInputText.on('pointerdown', () => {
+            if (this.inputActive) {
+                this.mobileInput.value = this.playerName;
+                this.mobileInput.focus();
+                console.log('📱 Mobile input focused for keyboard');
+            }
         });
     }
     
@@ -288,5 +343,18 @@ class CharacterSelectionScene extends Phaser.Scene {
         
         if (currentLine) lines.push(currentLine);
         return lines;
+    }
+    
+    shutdown() {
+        // Clean up input handler
+        if (this.keyHandler) {
+            this.input.keyboard.off('keydown', this.keyHandler);
+        }
+        
+        // Clean up mobile input
+        if (this.mobileInput && this.mobileInput.parentNode) {
+            this.mobileInput.parentNode.removeChild(this.mobileInput);
+            this.mobileInput = null;
+        }
     }
 }
