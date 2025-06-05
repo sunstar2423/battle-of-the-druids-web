@@ -3,8 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>Battle of the Druids - Web Edition</title>
-    <meta name="description" content="Turn-based RPG with character classes, tactical combat, and progression. Battle enemies to earn Dragon Shards!">
+    <title>Battle of the Druids - Free Online RPG Game</title>
+    <meta name="description" content="Play Battle of the Druids - A free turn-based RPG with 4 character classes, tactical combat, equipment progression, and 9 unique locations. Play instantly in your browser!">
+    <meta name="keywords" content="free online rpg, browser game, turn-based combat, fantasy rpg, character classes, online game">
+    <meta name="author" content="CodeCraft Games">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Battle of the Druids - Free Online RPG">
+    <meta property="og:description" content="Epic turn-based RPG with character classes, magical spells, and tactical combat. Play free in your browser!">
+    <meta property="og:url" content="http://battle-of-the-druids-web.s3-website-ap-southeast-2.amazonaws.com/">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Battle of the Druids - Free Online RPG">
+    <meta name="twitter:description" content="Epic turn-based RPG with character classes and tactical combat. Play free!">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID', {
+            page_title: 'Battle of the Druids',
+            custom_map: {'custom_parameter': 'game_events'}
+        });
+        
+        // Game-specific event tracking
+        function trackGameEvent(action, category = 'Game') {
+            gtag('event', action, {
+                event_category: category,
+                event_label: 'Battle of the Druids'
+            });
+        }
+        
+        // Make tracking function available globally
+        window.trackGameEvent = trackGameEvent;
+    </script>
     <style>
         body {
             margin: 0;
@@ -76,14 +113,28 @@
 </head>
 <body>
     <div>
+        <!-- Top Ad Space (728x90 leaderboard) -->
+        <div id="ad-top" style="width: 728px; height: 90px; margin: 10px auto; background: #f0f0f0; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;">
+            Ad Space - 728x90
+        </div>
+        
         <div id="game-container">
             <div class="loading">Loading Battle of the Druids...</div>
         </div>
+        
+        <!-- Bottom Ad Space (728x90 leaderboard) -->
+        <div id="ad-bottom" style="width: 728px; height: 90px; margin: 10px auto; background: #f0f0f0; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;">
+            Ad Space - 728x90
+        </div>
+        
         <div class="game-info">
             <strong>Battle of the Druids - Web Edition</strong><br>
             A complete turn-based RPG with inventory, equipment, magic spells, and epic battles!
             <div class="controls">
                 Controls: Touch/Mouse to interact • ESC to go back • Enter to confirm
+            </div>
+            <div style="margin-top: 15px; font-size: 12px;">
+                <a href="privacy-policy.html" style="color: #bdc3c7; text-decoration: none;">Privacy Policy</a>
             </div>
         </div>
     </div>

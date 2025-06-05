@@ -313,6 +313,12 @@ class CharacterSelectionScene extends Phaser.Scene {
     }
     
     createCharacter() {
+        // Track character creation
+        if (window.trackGameEvent) {
+            window.trackGameEvent('character_created', 'Player_Actions');
+            window.trackGameEvent(`character_${this.selectedCharacter.type.toLowerCase()}`, 'Character_Types');
+        }
+        
         // Create character object
         const character = new Character(this.selectedCharacter.type, this.playerName.trim());
         
