@@ -176,8 +176,8 @@ const gameConfig = {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
         min: {
-            width: 800,
-            height: 600
+            width: 320,  // Support very small phones
+            height: 240
         },
         max: {
             width: SCREEN_WIDTH,

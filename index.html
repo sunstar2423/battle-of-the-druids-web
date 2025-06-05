@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Battle of the Druids - Web Edition</title>
     <style>
         body {
@@ -15,6 +15,11 @@
             min-height: 100vh;
             font-family: 'Arial', sans-serif;
             overflow: hidden;
+            /* Mobile optimizations */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
         
         #game-container {
@@ -22,6 +27,28 @@
             border-radius: 12px;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
             background: #000;
+            max-width: 95vw;
+            max-height: 95vh;
+        }
+        
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            #game-container {
+                border: 1px solid #34495e;
+                border-radius: 6px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+                max-width: 100vw;
+                max-height: 100vh;
+            }
+            
+            .game-info {
+                font-size: 12px !important;
+                margin-top: 10px !important;
+            }
+            
+            .controls {
+                font-size: 10px !important;
+            }
         }
         
         .loading {
@@ -55,7 +82,7 @@
             <strong>Battle of the Druids - Web Edition</strong><br>
             A complete turn-based RPG with inventory, equipment, magic spells, and epic battles!
             <div class="controls">
-                Controls: Mouse to interact • ESC to go back • Enter to confirm
+                Controls: Touch/Mouse to interact • ESC to go back • Enter to confirm
             </div>
         </div>
     </div>
