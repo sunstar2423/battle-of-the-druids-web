@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle of the Druids - Web Edition</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        
+        #game-container {
+            border: 3px solid #34495e;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            background: #000;
+        }
+        
+        .loading {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        
+        .game-info {
+            color: white;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            max-width: 1400px;
+        }
+        
+        .controls {
+            color: #bdc3c7;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="game-container">
+            <div class="loading">Loading Battle of the Druids...</div>
+        </div>
+        <div class="game-info">
+            <strong>Battle of the Druids - Web Edition</strong><br>
+            A complete turn-based RPG with inventory, equipment, magic spells, and epic battles!
+            <div class="controls">
+                Controls: Mouse to interact • ESC to go back • Enter to confirm
+            </div>
+        </div>
+    </div>
+
+    <!-- Phaser.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+    
+    <!-- Game modules -->
+    <script src="js/GameData.js"></script>
+    <script src="js/Character.js"></script>
+    <script src="js/Equipment.js"></script>
+    <script src="js/SaveSystem.js"></script>
+    <script src="js/Effects.js"></script>
+    <script src="js/Assets.js"></script>
+    <script src="js/scenes/PreloadScene.js"></script>
+    <script src="js/scenes/CharacterSelectionScene.js"></script>
+    <script src="js/scenes/MainMenuScene.js"></script>
+    <script src="js/scenes/WorldMapScene.js"></script>
+    <script src="js/scenes/BattleScene.js"></script>
+    <script src="js/scenes/InventoryScene.js"></script>
+    <script src="js/scenes/StoreScene.js"></script>
+    <script src="js/scenes/StatsScene.js"></script>
+    <script src="js/Game.js"></script>
+</body>
+</html>
