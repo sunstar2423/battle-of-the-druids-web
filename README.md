@@ -1,12 +1,14 @@
 # Battle of the Druids - Web Edition
 
+Web-based RPG built with Phaser.js featuring character classes, tactical combat, and progression. Battle enemies online to earn Dragon Shards and claim the legendary DRUID CLOAK!
+
 A complete conversion of the Python/Pygame Battle of the Druids to JavaScript/Phaser.js for web browsers.
 
 ## 🎮 How to Play
 
 1. **Start a local server**:
    ```bash
-   cd web-game
+   cd battle-of-the-druids-web
    python3 -m http.server 8000
    ```
 
@@ -19,7 +21,7 @@ A complete conversion of the Python/Pygame Battle of the Druids to JavaScript/Ph
    - Check your inventory to see equipped items
    - Save/load your progress
 
-## ✨ Features Converted
+## ✨ Features
 
 ### ✅ Complete Game Systems
 - **Character Classes**: Knight, Wizard, Rogue, Soldier with unique abilities
