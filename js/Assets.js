@@ -31,7 +31,7 @@ class AssetManager {
             'fire_elemental', 'divine_beast', 'celestial', 'temple_guardian',
             'spirit_monk', 'pirate', 'ghost_ship', 'sea_serpent', 'kraken_spawn',
             'minotaur', 'golem', 'magma_golem', 'lava_beast', 'war_machine',
-            'mech_dragon', 'lost_soul'
+            'mech_dragon', 'lost_soul', 'druid_lord'
         ];
         enemies.forEach(enemy => {
             scene.load.image(enemy, `${enemy}.png`);

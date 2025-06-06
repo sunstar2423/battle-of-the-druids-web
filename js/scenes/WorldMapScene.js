@@ -127,9 +127,9 @@ class WorldMapScene extends Phaser.Scene {
                 align: 'center'
             }).setOrigin(0.5);
             
-            // Show requirements for locked locations
+            // Locked locations show as grayed out (no requirement text)
             if (!isUnlocked) {
-                this.add.text(location.x, location.y + 70, `Req: ${location.minVictoriesRequired} victories`, {
+                this.add.text(location.x, location.y + 70, 'LOCKED', {
                     fontSize: '12px',
                     fontFamily: 'Arial',
                     fill: '#FF4444'
@@ -215,15 +215,15 @@ class WorldMapScene extends Phaser.Scene {
     }
     
     showLockedMessage(location) {
-        let message = `Locked: Need ${location.minVictoriesRequired} victories`;
+        let message = "Locked";
         
         if (location.unlockRequirements) {
             const uncompletedReqs = location.unlockRequirements.filter(req => 
-                !this.player.locationVictories[req]
+                (this.player.locationVictories[req] || 0) < 3
             );
             
             if (uncompletedReqs.length > 0) {
-                message += `\nAlso need: ${uncompletedReqs.join(', ')}`;
+                message += `\nComplete these locations first:\n${uncompletedReqs.join(', ')}`;
             }
         }
         

@@ -67,8 +67,7 @@ class MainMenuScene extends Phaser.Scene {
             { text: 'World Map', y: 320, action: () => this.scene.start('WorldMap') },
             { text: 'Store', y: 380, action: () => this.scene.start('Store') },
             { text: 'Inventory', y: 440, action: () => this.scene.start('Inventory') },
-            { text: 'Stats', y: 500, action: () => this.scene.start('Stats') },
-            { text: 'Quit', y: 560, action: () => this.quitGame() }
+            { text: 'Quit', y: 500, action: () => this.quitGame() }
         ];
         
         buttonData.forEach(btn => {
