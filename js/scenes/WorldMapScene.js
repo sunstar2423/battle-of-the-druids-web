@@ -42,12 +42,12 @@ class WorldMapScene extends Phaser.Scene {
             fill: '#FFFFFF'
         }).setOrigin(0.5);
         
-        // Main Menu button
-        const mainMenuBtn = this.add.rectangle(120, 50, 160, 40, COLORS.DARK_GRAY)
+        // Main Menu button (bottom-right corner)
+        const mainMenuBtn = this.add.rectangle(width - 100, height - 50, 160, 40, COLORS.DARK_GRAY)
             .setStrokeStyle(2, COLORS.WHITE)
             .setInteractive();
         
-        this.add.text(120, 50, 'Main Menu', {
+        this.add.text(width - 100, height - 50, 'Main Menu', {
             fontSize: '18px',
             fontFamily: 'Arial',
             fill: '#FFFFFF'
