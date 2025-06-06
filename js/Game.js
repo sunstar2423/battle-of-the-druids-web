@@ -20,11 +20,11 @@ const gameConfig = {
         StatsScene
     ],
     scale: {
-        mode: Phaser.Scale.FIT,
+        mode: Phaser.Scale.RESIZE,
         autoCenter: Phaser.Scale.CENTER_BOTH,
         min: {
             width: 320,  // Support very small phones
-            height: 240
+            height: 480
         },
         max: {
             width: SCREEN_WIDTH,
