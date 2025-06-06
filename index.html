@@ -60,6 +60,15 @@
             touch-action: manipulation;
         }
         
+        /* Mobile: Use full viewport height when ads are hidden */
+        @media (max-width: 768px) {
+            body {
+                min-height: 100vh;
+                align-items: flex-start;
+                padding-top: 10px;
+            }
+        }
+        
         #game-container {
             border: 3px solid #34495e;
             border-radius: 12px;
@@ -71,6 +80,11 @@
         
         /* Mobile specific adjustments */
         @media (max-width: 768px) {
+            /* Hide ad spaces on mobile to save screen space */
+            #ad-top, #ad-bottom {
+                display: none !important;
+            }
+            
             #game-container {
                 border: 1px solid #34495e;
                 border-radius: 6px;
@@ -86,6 +100,15 @@
             
             .controls {
                 font-size: 10px !important;
+            }
+        }
+        
+        /* Tablet adjustments - smaller ads */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            #ad-top, #ad-bottom {
+                width: 468px !important;
+                height: 60px !important;
+                font-size: 12px;
             }
         }
         
