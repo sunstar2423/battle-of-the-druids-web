@@ -260,43 +260,6 @@ class Character {
         }
     }
     
-    // Save/load methods
-    toSaveData() {
-        return {
-            charType: this.charType,
-            name: this.name,
-            health: this.health,
-            maxHealth: this.maxHealth,
-            baseAttack: this.baseAttack,
-            baseDefense: this.baseDefense,
-            baseSpeed: this.baseSpeed,
-            victories: this.victories,
-            gold: this.gold,
-            dragonShards: this.dragonShards,
-            weaponBonus: this.weaponBonus,
-            armorBonus: this.armorBonus,
-            accessoryBonus: this.accessoryBonus,
-            locationVictories: this.locationVictories,
-            equipped: this.equipped,
-            mana: this.mana,
-            maxMana: this.maxMana
-        };
-    }
-    
-    static fromSaveData(data) {
-        const character = new Character(data.charType, data.name);
-        
-        // Restore all properties
-        Object.assign(character, data);
-        
-        // Ensure equipped items are properly formatted
-        if (data.equipped) {
-            character.equipped = { ...data.equipped };
-            character.updateEquipmentBonuses();
-        }
-        
-        return character;
-    }
 }
 
 // Enemy creation function

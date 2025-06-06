@@ -45,7 +45,6 @@ class CharacterSelectionScene extends Phaser.Scene {
         this.inputActive = false;
         this.nameInputBox = null;
         this.cursor = null;
-        this.loadButton = null;
     }
     
     create() {
@@ -71,21 +70,6 @@ class CharacterSelectionScene extends Phaser.Scene {
             console.log('👥 Creating character cards...');
             this.createCharacterCards();
             
-            console.log('🔘 Adding load game button...');
-            // Load Game button
-            this.loadButton = this.add.rectangle(width / 2, 580, 200, 50, COLORS.DARK_GRAY)
-                .setStrokeStyle(2, COLORS.WHITE)
-                .setInteractive();
-            
-            this.add.text(width / 2, 580, 'Load Game', {
-                fontSize: '20px',
-                fontFamily: 'Arial',
-                fill: '#FFFFFF'
-            }).setOrigin(0.5);
-            
-            this.loadButton.on('pointerdown', () => this.showLoadGameScreen());
-            this.loadButton.on('pointerover', () => this.loadButton.setFillStyle(COLORS.GRAY));
-            this.loadButton.on('pointerout', () => this.loadButton.setFillStyle(COLORS.DARK_GRAY));
             
             console.log('📄 Adding instructions...');
             // Instructions
@@ -329,9 +313,6 @@ class CharacterSelectionScene extends Phaser.Scene {
         this.scene.start('MainMenu');
     }
     
-    showLoadGameScreen() {
-        this.scene.start('LoadGame');
-    }
     
     wrapText(text, maxLength) {
         const words = text.split(' ');

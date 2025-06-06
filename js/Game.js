@@ -1,158 +1,6 @@
 // Main Game Configuration for Battle of the Druids Web Edition
 // Phaser.js game initialization and scene management
 
-// Add a simple LoadGame scene for save file loading
-class LoadGameScene extends Phaser.Scene {
-    constructor() {
-        super({ key: 'LoadGame' });
-        this.saveFiles = [];
-        this.selectedSave = null;
-        this.saveDisplays = [];
-    }
-    
-    create() {
-        const { width, height } = this.scale;
-        
-        // Background
-        BackgroundRenderer.drawMenuBackground(this);
-        
-        // Title
-        this.add.text(width / 2, 50, 'Load Game', {
-            fontSize: '48px',
-            fontFamily: 'Arial',
-            fill: '#FFD700',
-            stroke: '#000000',
-            strokeThickness: 3
-        }).setOrigin(0.5);
-        
-        // Load save files
-        this.saveFiles = saveSystem.getSaveFiles();
-        
-        if (this.saveFiles.length === 0) {
-            this.add.text(width / 2, height / 2, 'No save files found.\nCreate a save first!', {
-                fontSize: '24px',
-                fontFamily: 'Arial',
-                fill: '#FFFFFF',
-                align: 'center'
-            }).setOrigin(0.5);
-        } else {
-            this.add.text(width / 2, 100, 'Click to select, double-click to load', {
-                fontSize: '18px',
-                fontFamily: 'Arial',
-                fill: '#FFFFFF'
-            }).setOrigin(0.5);
-            
-            this.createSaveFileList();
-        }
-        
-        // Back button
-        const backButton = this.add.rectangle(100, height - 80, 120, 40, COLORS.DARK_GRAY)
-            .setStrokeStyle(2, COLORS.WHITE)
-            .setInteractive();
-        
-        this.add.text(100, height - 80, 'Back', {
-            fontSize: '18px',
-            fontFamily: 'Arial',
-            fill: '#FFFFFF'
-        }).setOrigin(0.5);
-        
-        backButton.on('pointerdown', () => this.scene.start('CharacterSelection'));
-        
-        // ESC key to return
-        this.input.keyboard.on('keydown-ESC', () => {
-            this.scene.start('CharacterSelection');
-        });
-    }
-    
-    createSaveFileList() {
-        const { width } = this.scale;
-        const maxVisible = 8;
-        const visibleSaves = this.saveFiles.slice(0, maxVisible);
-        
-        visibleSaves.forEach((saveFile, index) => {
-            const y = 150 + index * 60;
-            const isSelected = this.selectedSave === index;
-            
-            // Save file background
-            const saveBg = this.add.rectangle(width / 2, y, width - 100, 50, isSelected ? COLORS.LIGHT_BLUE : COLORS.DARK_GRAY)
-                .setStrokeStyle(2, COLORS.WHITE)
-                .setInteractive();
-            
-            // Save file info
-            this.add.text(70, y - 10, `${saveFile.characterName} (${saveFile.characterType})`, {
-                fontSize: '18px',
-                fontFamily: 'Arial',
-                fill: '#FFFFFF',
-                fontStyle: 'bold'
-            });
-            
-            this.add.text(70, y + 10, `Level ${saveFile.level} | Gold: ${saveFile.gold} | ${saveFile.saveDate.slice(0, 10)}`, {
-                fontSize: '14px',
-                fontFamily: 'Arial',
-                fill: '#CCCCCC'
-            });
-            
-            // Click handlers
-            let clickCount = 0;
-            let clickTimer = null;
-            
-            saveBg.on('pointerdown', () => {
-                clickCount++;
-                
-                if (clickCount === 1) {
-                    clickTimer = this.time.delayedCall(300, () => {
-                        // Single click - select
-                        this.selectSaveFile(index);
-                        clickCount = 0;
-                    });
-                } else if (clickCount === 2) {
-                    // Double click - load
-                    if (clickTimer) {
-                        clickTimer.destroy();
-                        clickTimer = null;
-                    }
-                    this.loadSaveFile(saveFile);
-                    clickCount = 0;
-                }
-            });
-            
-            this.saveDisplays.push({ bg: saveBg, saveFile });
-        });
-        
-        if (this.saveFiles.length > maxVisible) {
-            this.add.text(width / 2, 150 + maxVisible * 60 + 20, `... and ${this.saveFiles.length - maxVisible} more saves`, {
-                fontSize: '16px',
-                fontFamily: 'Arial',
-                fill: '#CCCCCC'
-            }).setOrigin(0.5);
-        }
-    }
-    
-    selectSaveFile(index) {
-        this.selectedSave = index;
-        
-        // Update visual selection
-        this.saveDisplays.forEach((display, i) => {
-            display.bg.setFillStyle(i === index ? COLORS.LIGHT_BLUE : COLORS.DARK_GRAY);
-        });
-    }
-    
-    loadSaveFile(saveFile) {
-        const character = saveSystem.loadCharacter(saveFile.filename);
-        
-        if (character) {
-            this.registry.set('currentPlayer', character);
-            this.scene.start('MainMenu');
-        } else {
-            // Show error message
-            this.add.text(this.scale.width / 2, this.scale.height - 150, 'Failed to load save file!', {
-                fontSize: '20px',
-                fontFamily: 'Arial',
-                fill: '#FF0000'
-            }).setOrigin(0.5);
-        }
-    }
-}
 
 // Phaser game configuration
 const gameConfig = {
@@ -164,7 +12,6 @@ const gameConfig = {
     scene: [
         PreloadScene,
         CharacterSelectionScene,
-        LoadGameScene,
         MainMenuScene,
         WorldMapScene,
         BattleScene,
@@ -240,7 +87,6 @@ window.addEventListener('load', () => {
         
         console.log('✅ Game initialized successfully!');
         console.log('📝 Debug: Access game object via window.game');
-        console.log('💾 Save system: Access via saveSystem global variable');
         
     } catch (error) {
         console.error('❌ Failed to initialize game:', error);
@@ -295,7 +141,6 @@ window.addEventListener('error', (event) => {
 });
 
 // Export for debugging
-window.saveSystem = saveSystem;
 window.CHARACTER_PRESETS = CHARACTER_PRESETS;
 window.WORLD_LOCATIONS = WORLD_LOCATIONS;
 

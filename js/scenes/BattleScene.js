@@ -576,8 +576,6 @@ class BattleScene extends Phaser.Scene {
         
         console.log(`🏰 Victory check: Location=${this.location.name}, Victories=${this.player.locationVictories[this.location.name]}, IsFinale=${isFinaleVictory}`);
         
-        // Auto-save
-        saveSystem.autoSave(this.player);
         
         // Show special finale victory or regular victory
         if (isFinaleVictory) {
