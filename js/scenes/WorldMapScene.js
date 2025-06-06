@@ -36,11 +36,36 @@ class WorldMapScene extends Phaser.Scene {
         }).setOrigin(0.5);
         
         // Instructions
-        this.add.text(width / 2, 100, 'Click on a location to battle! Press ESC to return.', {
+        this.add.text(width / 2, 100, 'Click on a location to battle!', {
             fontSize: '18px',
             fontFamily: 'Arial',
             fill: '#FFFFFF'
         }).setOrigin(0.5);
+        
+        // Main Menu button
+        const mainMenuBtn = this.add.rectangle(120, 50, 160, 40, COLORS.DARK_GRAY)
+            .setStrokeStyle(2, COLORS.WHITE)
+            .setInteractive();
+        
+        this.add.text(120, 50, 'Main Menu', {
+            fontSize: '18px',
+            fontFamily: 'Arial',
+            fill: '#FFFFFF'
+        }).setOrigin(0.5);
+        
+        // Main Menu button interactions
+        mainMenuBtn.on('pointerdown', () => {
+            this.assetManager.playSound(this, 'click', 0.4);
+            this.scene.start('MainMenu');
+        });
+        
+        mainMenuBtn.on('pointerover', () => {
+            mainMenuBtn.setFillStyle(COLORS.GRAY);
+        });
+        
+        mainMenuBtn.on('pointerout', () => {
+            mainMenuBtn.setFillStyle(COLORS.DARK_GRAY);
+        });
         
         // Create location markers
         this.createLocationMarkers();
