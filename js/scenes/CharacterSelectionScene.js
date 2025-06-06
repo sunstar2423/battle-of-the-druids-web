@@ -56,6 +56,12 @@ class CharacterSelectionScene extends Phaser.Scene {
             console.log('🎨 Drawing background...');
             BackgroundRenderer.drawMenuBackground(this);
             
+            // Initialize asset manager and start menu music
+            if (!this.assetManager) {
+                this.assetManager = new AssetManager(this);
+            }
+            this.assetManager.playMenuMusic(this, true, 0.2);
+            
             // Title
             console.log('📝 Adding title...');
             this.add.text(width / 2, 100, 'Choose Your Character', {

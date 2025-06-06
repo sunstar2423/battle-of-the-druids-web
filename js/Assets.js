@@ -66,8 +66,9 @@ class AssetManager {
         
         // Background music with fallback
         try {
-            scene.load.audio('background_music', 'background_music.wav');
-            console.log(`📦 Loading audio: background_music.wav`);
+            scene.load.audio('world_music', 'piano.mp3'); // For world map and battles
+            scene.load.audio('menu_music', 'voyage.mp3'); // For menus and character selection
+            console.log(`📦 Loading audio: piano.mp3 and voyage.mp3`);
         } catch (error) {
             console.error(`❌ Failed to queue background music`, error);
         }
@@ -75,7 +76,7 @@ class AssetManager {
         // Special victory assets
         try {
             scene.load.image('victory', 'victory.png');
-            scene.load.audio('victory-fanfare', 'victory-fanfare.wav');
+            scene.load.audio('victory-fanfare', 'victory.mp3'); // New finale victory music
             console.log(`📦 Loading special victory assets`);
         } catch (error) {
             console.error(`❌ Failed to queue victory assets`, error);
@@ -177,26 +178,36 @@ class AssetManager {
     }
     
     // Play background music
-    playBackgroundMusic(scene, loop = true, volume = 0.3) {
+    playBackgroundMusic(scene, loop = true, volume = 0.3, trackName = 'background_music') {
         try {
-            console.log(`🎵 Attempting to play background music`);
+            console.log(`🎵 Attempting to play background music: ${trackName}`);
             console.log(`🎵 Scene.sound exists:`, !!scene.sound);
-            console.log(`🎵 Background music exists:`, scene.cache.audio.exists('background_music'));
+            console.log(`🎵 ${trackName} exists:`, scene.cache.audio.exists(trackName));
             
-            if (scene.sound && scene.cache.audio.exists('background_music')) {
-                console.log(`🎵 Playing background music at volume ${volume}`);
-                const music = scene.sound.play('background_music', { 
+            if (scene.sound && scene.cache.audio.exists(trackName)) {
+                console.log(`🎵 Playing ${trackName} at volume ${volume}`);
+                const music = scene.sound.play(trackName, { 
                     loop, 
                     volume 
                 });
                 return music;
             } else {
-                console.warn('🎵 Background music not found or not loaded');
+                console.warn(`🎵 ${trackName} not found or not loaded`);
             }
         } catch (error) {
-            console.warn('🎵 Could not play background music:', error);
+            console.warn(`🎵 Could not play ${trackName}:`, error);
         }
         return null;
+    }
+    
+    // Play menu music specifically
+    playMenuMusic(scene, loop = true, volume = 0.2) {
+        return this.playBackgroundMusic(scene, loop, volume, 'menu_music');
+    }
+    
+    // Play battle/world music specifically  
+    playWorldMusic(scene, loop = true, volume = 0.3) {
+        return this.playBackgroundMusic(scene, loop, volume, 'world_music');
     }
     
     // Play victory fanfare (special method for finale)

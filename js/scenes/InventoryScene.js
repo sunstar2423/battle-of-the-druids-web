@@ -21,6 +21,10 @@ class InventoryScene extends Phaser.Scene {
         // Background
         BackgroundRenderer.drawInventoryBackground(this);
         
+        // Initialize asset manager and start menu music
+        this.assetManager = new AssetManager(this);
+        this.assetManager.playMenuMusic(this, true, 0.15);
+        
         // Title
         this.add.text(width / 2, 80, `${this.player.name}'s Equipment`, {
             fontSize: '48px',

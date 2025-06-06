@@ -23,9 +23,9 @@ class MainMenuScene extends Phaser.Scene {
         // Background
         BackgroundRenderer.drawMenuBackground(this);
         
-        // Initialize asset manager and start background music
+        // Initialize asset manager and start menu background music
         this.assetManager = new AssetManager(this);
-        this.assetManager.playBackgroundMusic(this, true, 0.2);
+        this.assetManager.playMenuMusic(this, true, 0.2);
         
         // Title
         this.add.text(width / 2, 150, 'Battle of the Druids', {

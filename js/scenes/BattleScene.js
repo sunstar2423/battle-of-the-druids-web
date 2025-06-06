@@ -53,8 +53,9 @@ class BattleScene extends Phaser.Scene {
         // Initialize effect manager
         this.effectManager = new EffectManager(this);
         
-        // Initialize asset manager for audio
+        // Initialize asset manager for audio and start battle music
         this.assetManager = new AssetManager(this);
+        this.assetManager.playWorldMusic(this, true, 0.3);
         
         // Create UI
         this.createBattleUI();

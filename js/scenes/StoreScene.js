@@ -26,8 +26,9 @@ class StoreScene extends Phaser.Scene {
         // Background
         BackgroundRenderer.drawStoreBackground(this);
         
-        // Initialize asset manager for audio
+        // Initialize asset manager for audio and start menu music
         this.assetManager = new AssetManager(this);
+        this.assetManager.playMenuMusic(this, true, 0.15);
         
         // Title
         this.add.text(width / 2, 50, 'Magic Item Shop', {

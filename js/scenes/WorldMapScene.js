@@ -23,8 +23,9 @@ class WorldMapScene extends Phaser.Scene {
         // Background
         BackgroundRenderer.drawWorldMapBackground(this);
         
-        // Initialize asset manager for audio
+        // Initialize asset manager for audio and start world music
         this.assetManager = new AssetManager(this);
+        this.assetManager.playWorldMusic(this, true, 0.25);
         
         // Title
         this.add.text(width / 2, 50, 'World Map', {
