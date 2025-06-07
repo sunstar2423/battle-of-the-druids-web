@@ -71,7 +71,8 @@ class WorldMapScene extends Phaser.Scene {
         // Create location markers
         this.createLocationMarkers();
         
-        // Note: Keyboard input disabled to prevent mobile keyboard popup
+        // Disable keyboard input to prevent mobile keyboard popup
+        this.input.keyboard.enabled = false;
         
         // Hover description text (initially empty)
         this.hoverDescription = this.add.text(width / 2, height - 100, '', {

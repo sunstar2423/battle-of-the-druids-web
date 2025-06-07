@@ -38,7 +38,7 @@ const gameConfig = {
         }
     },
     input: {
-        keyboard: false,  // Disable by default to prevent mobile keyboard popup
+        keyboard: true,  // Enable keyboard but carefully manage in scenes
         mouse: true,
         touch: {
             capture: false  // Allow native touch gestures to pass through
