@@ -53,7 +53,7 @@ class AssetManager {
         scene.load.image('city', 'city.png');
         
         // Sound effects with fallback formats
-        const sounds = ['heal', 'special', 'victory', 'defeat', 'buy', 'click'];
+        const sounds = ['heal', 'special', 'victory', 'defeat', 'click'];
         sounds.forEach(sound => {
             try {
                 // Try to load WAV files with error handling
@@ -63,6 +63,14 @@ class AssetManager {
                 console.error(`❌ Failed to queue audio: ${sound}`, error);
             }
         });
+        
+        // Load buy sound as MP3
+        try {
+            scene.load.audio('buy', 'buy.mp3');
+            console.log(`📦 Loading audio: buy.mp3`);
+        } catch (error) {
+            console.error(`❌ Failed to queue audio: buy.mp3`, error);
+        }
         
         // Load attack sound as MP3
         try {
