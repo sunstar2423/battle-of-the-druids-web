@@ -374,8 +374,8 @@ class BattleScene extends Phaser.Scene {
     playerAttack() {
         if (!this.playerTurn || this.turnTimer > 0 || this.battleOver) return;
         
-        // Play attack sound
-        this.assetManager.playSound(this, 'attack', 0.6);
+        // Play attack sound (higher volume for custom MP3)
+        this.assetManager.playSound(this, 'attack', 0.9);
         
         const damage = this.player.attackEnemy(this.enemy);
         this.effectManager.addDamageNumber(this.scale.width - 300, 350, damage);
