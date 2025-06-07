@@ -170,6 +170,8 @@ class CharacterSelectionScene extends Phaser.Scene {
         
         // Enable keyboard input only when needed for text entry
         this.input.keyboard.enabled = true;
+        // Remove any existing listener before adding new one to prevent duplicates
+        this.input.keyboard.off('keydown', this.handleKeyInput);
         this.input.keyboard.on('keydown', this.handleKeyInput, this);
         
         // Update instructions (mobile-friendly)
