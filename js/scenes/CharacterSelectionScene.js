@@ -165,6 +165,7 @@ class CharacterSelectionScene extends Phaser.Scene {
         // Highlight selected character
         cardElement.setStrokeStyle(5, COLORS.GOLD);
         this.selectedCharacter = character;
+        this.selectedCharacter.cardElement = cardElement;
         this.inputActive = true;
         
         // Enable keyboard input only when needed for text entry
