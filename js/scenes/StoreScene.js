@@ -77,10 +77,7 @@ class StoreScene extends Phaser.Scene {
             fill: '#FFFFFF'
         }).setOrigin(0.5);
         
-        // ESC key to return
-        this.input.keyboard.on('keydown-ESC', () => {
-            this.scene.start('MainMenu');
-        });
+        // Note: Keyboard input disabled to prevent mobile keyboard popup
     }
     
     createTierButtons() {

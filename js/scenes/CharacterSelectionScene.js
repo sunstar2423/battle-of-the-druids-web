@@ -86,7 +86,8 @@ class CharacterSelectionScene extends Phaser.Scene {
             }).setOrigin(0.5);
             
             console.log('⌨️ Setting up input handling...');
-            // Input handling
+            // Enable keyboard input for this scene only
+            this.input.keyboard.enabled = true;
             this.input.keyboard.on('keydown', this.handleKeyInput, this);
             
             console.log('✅ CharacterSelectionScene create complete');
@@ -339,15 +340,32 @@ class CharacterSelectionScene extends Phaser.Scene {
     }
     
     shutdown() {
+        // Disable keyboard input when leaving this scene
+        this.input.keyboard.enabled = false;
+        
         // Clean up input handler
         if (this.keyHandler) {
             this.input.keyboard.off('keydown', this.keyHandler);
         }
         
-        // Clean up mobile input
-        if (this.mobileInput && this.mobileInput.parentNode) {
-            this.mobileInput.parentNode.removeChild(this.mobileInput);
+        // Clean up mobile input completely
+        if (this.mobileInput) {
+            if (this.mobileInput.parentNode) {
+                this.mobileInput.parentNode.removeChild(this.mobileInput);
+            }
             this.mobileInput = null;
+            console.log('📱 Mobile input cleaned up');
         }
+        
+        // Remove any lingering input elements
+        const lingering = document.querySelectorAll('input[type="text"]');
+        lingering.forEach(input => {
+            if (input.style.left === '-9999px') {
+                input.remove();
+                console.log('📱 Removed lingering input element');
+            }
+        });
+        
+        console.log('📱 Keyboard disabled for mobile');
     }
 }

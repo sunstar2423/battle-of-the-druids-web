@@ -70,8 +70,9 @@ class BattleScene extends Phaser.Scene {
         const escHandler = () => {
             this.forfeitBattle();
         };
-        this.input.keyboard.on('keydown-ESC', escHandler);
-        this.keyboardEvents.push({ key: 'keydown-ESC', handler: escHandler });
+        // Note: ESC key disabled to prevent mobile keyboard popup
+        // this.input.keyboard.on('keydown-ESC', escHandler);
+        // this.keyboardEvents.push({ key: 'keydown-ESC', handler: escHandler });
     }
     
     shutdown() {

@@ -52,10 +52,7 @@ class MainMenuScene extends Phaser.Scene {
         // Create menu buttons
         this.createMenuButtons();
         
-        // Input handling for ESC key
-        this.input.keyboard.on('keydown-ESC', () => {
-            // Could add pause menu or return to character selection
-        });
+        // Note: Keyboard input disabled to prevent mobile keyboard popup
     }
     
     createMenuButtons() {

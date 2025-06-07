@@ -71,10 +71,7 @@ class WorldMapScene extends Phaser.Scene {
         // Create location markers
         this.createLocationMarkers();
         
-        // ESC key to return to main menu
-        this.input.keyboard.on('keydown-ESC', () => {
-            this.scene.start('MainMenu');
-        });
+        // Note: Keyboard input disabled to prevent mobile keyboard popup
         
         // Hover description text (initially empty)
         this.hoverDescription = this.add.text(width / 2, height - 100, '', {
