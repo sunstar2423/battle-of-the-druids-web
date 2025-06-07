@@ -52,9 +52,6 @@ class MainMenuScene extends Phaser.Scene {
         // Create menu buttons
         this.createMenuButtons();
         
-        // Add audio test button
-        this.createAudioTestButton();
-        
         // Input handling for ESC key
         this.input.keyboard.on('keydown-ESC', () => {
             // Could add pause menu or return to character selection
@@ -156,50 +153,6 @@ class MainMenuScene extends Phaser.Scene {
         });
     }
     
-    createAudioTestButton() {
-        const { width, height } = this.scale;
-        
-        // Audio test button in top right
-        const testButton = this.add.rectangle(width - 100, 50, 120, 40, 0x444444)
-            .setStrokeStyle(2, COLORS.WHITE)
-            .setInteractive();
-        
-        this.add.text(width - 100, 50, 'Test Audio', {
-            fontSize: '16px',
-            fontFamily: 'Arial',
-            fill: '#FFFFFF'
-        }).setOrigin(0.5);
-        
-        testButton.on('pointerdown', () => {
-            console.log('🔧 Manual audio test triggered');
-            
-            // Test multiple audio methods
-            console.log('🔊 Testing direct sound play...');
-            if (this.sound) {
-                try {
-                    console.log('🔊 Available sounds:', Object.keys(this.sound.sounds));
-                    console.log('🔊 Audio cache keys:', this.cache.audio.getKeys());
-                    
-                    // Try direct play
-                    if (this.cache.audio.exists('click')) {
-                        this.sound.play('click', { volume: 0.5 });
-                        console.log('✅ Click sound played directly');
-                    } else {
-                        console.warn('❌ Click sound not in cache');
-                    }
-                    
-                    // Try AssetManager method
-                    if (this.assetManager) {
-                        this.assetManager.playSound(this, 'click', 0.5);
-                    }
-                } catch (error) {
-                    console.error('❌ Audio test failed:', error);
-                }
-            } else {
-                console.error('❌ No sound manager available');
-            }
-        });
-    }
     
     update() {
         // Update player reference in registry in case it was modified
