@@ -179,14 +179,26 @@ class CharacterSelectionScene extends Phaser.Scene {
         const instructionText = isMobile ? 
             'Tap the text box below to enter your name:' : 
             'Enter your name and press Enter:';
-        this.instructionText.setText(instructionText);
+        
+        // Safety check for instructionText
+        if (this.instructionText) {
+            this.instructionText.setText(instructionText);
+        } else {
+            console.error('❌ instructionText not found - recreating...');
+            this.instructionText = this.add.text(this.scale.width / 2, 450, instructionText, {
+                fontSize: '18px',
+                fontFamily: 'Arial',
+                fill: '#FFFFFF'
+            }).setOrigin(0.5);
+        }
         
         // Create name input visualization
         this.createNameInputBox();
     }
     
     createNameInputBox() {
-        const { width } = this.scale;
+        try {
+            const { width } = this.scale;
         
         // Remove old input box if exists
         if (this.nameInputBox) {
@@ -229,6 +241,10 @@ class CharacterSelectionScene extends Phaser.Scene {
             yoyo: true,
             repeat: -1
         });
+        } catch (error) {
+            console.error('❌ createNameInputBox error:', error);
+            console.error('Stack trace:', error.stack);
+        }
     }
     
     setupMobileInput() {
