@@ -41,6 +41,7 @@ class AssetManager {
         scene.load.image('world_map', 'world_map.png');
         scene.load.image('shop_background', 'shop_background.png');
         scene.load.image('menu', 'menu.png');
+        scene.load.image('druid', 'druid.png');
         
         // Location background images
         scene.load.image('arena', 'arena.png');

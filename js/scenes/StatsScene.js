@@ -55,10 +55,7 @@ class StatsScene extends Phaser.Scene {
         backButton.on('pointerover', () => backButton.setFillStyle(COLORS.GRAY));
         backButton.on('pointerout', () => backButton.setFillStyle(COLORS.DARK_GRAY));
         
-        // ESC key to return
-        this.input.keyboard.on('keydown-ESC', () => {
-            this.scene.start('MainMenu');
-        });
+        // Note: ESC key disabled to prevent mobile keyboard popup
     }
     
     drawWeaponIndicator(x, y) {

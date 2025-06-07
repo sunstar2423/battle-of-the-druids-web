@@ -395,6 +395,15 @@ class BackgroundRenderer {
     }
     
     static drawInventoryBackground(scene) {
-        BackgroundRenderer.drawGradientBackground(scene, 0x1e2832, 0x2d3e50);
+        // Try to load druid background image, fallback to gradient
+        if (!scene.assetManager) {
+            scene.assetManager = new AssetManager(scene);
+        }
+        
+        if (scene.textures.exists('druid')) {
+            scene.assetManager.getBackgroundImage(scene, 'druid');
+        } else {
+            BackgroundRenderer.drawGradientBackground(scene, 0x1e2832, 0x2d3e50);
+        }
     }
 }

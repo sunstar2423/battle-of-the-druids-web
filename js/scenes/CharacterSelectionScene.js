@@ -85,10 +85,8 @@ class CharacterSelectionScene extends Phaser.Scene {
                 fill: '#FFFFFF'
             }).setOrigin(0.5);
             
-            console.log('⌨️ Setting up input handling...');
-            // Enable keyboard input for this scene only
-            this.input.keyboard.enabled = true;
-            this.input.keyboard.on('keydown', this.handleKeyInput, this);
+            console.log('⌨️ Keyboard input will be enabled when character is selected...');
+            // Note: Keyboard listener is registered only when text input is needed
             
             console.log('✅ CharacterSelectionScene create complete');
             
@@ -168,6 +166,10 @@ class CharacterSelectionScene extends Phaser.Scene {
         cardElement.setStrokeStyle(5, COLORS.GOLD);
         this.selectedCharacter = character;
         this.inputActive = true;
+        
+        // Enable keyboard input only when needed for text entry
+        this.input.keyboard.enabled = true;
+        this.input.keyboard.on('keydown', this.handleKeyInput, this);
         
         // Update instructions (mobile-friendly)
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -316,6 +318,11 @@ class CharacterSelectionScene extends Phaser.Scene {
         // Store globally for other scenes
         this.registry.set('currentPlayer', character);
         
+        // Disable keyboard input when character creation is complete
+        this.inputActive = false;
+        this.input.keyboard.off('keydown', this.handleKeyInput);
+        this.input.keyboard.enabled = false;
+        
         // Transition to main menu
         this.scene.start('MainMenu');
     }
@@ -343,10 +350,8 @@ class CharacterSelectionScene extends Phaser.Scene {
         // Disable keyboard input when leaving this scene
         this.input.keyboard.enabled = false;
         
-        // Clean up input handler
-        if (this.keyHandler) {
-            this.input.keyboard.off('keydown', this.keyHandler);
-        }
+        // Clean up keyboard input handler
+        this.input.keyboard.off('keydown', this.handleKeyInput);
         
         // Clean up mobile input completely
         if (this.mobileInput) {

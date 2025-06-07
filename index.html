@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=3.0, user-scalable=yes, shrink-to-fit=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes, shrink-to-fit=no, viewport-fit=cover">
     <title>Battle of the Druids - Free Online RPG Game</title>
     <meta name="description" content="Play Battle of the Druids - A free turn-based RPG with 4 character classes, tactical combat, equipment progression, and 9 unique locations. Play instantly in your browser!">
     <meta name="keywords" content="free online rpg, browser game, turn-based combat, fantasy rpg, character classes, online game">
@@ -90,20 +90,22 @@
                 padding: 0;
                 margin: 0;
                 overflow: auto;
-                touch-action: auto;
+                touch-action: pan-x pan-y pinch-zoom;
                 -webkit-overflow-scrolling: touch;
+                overscroll-behavior: contain;
             }
             
             #game-container {
                 border: 1px solid #34495e;
                 border-radius: 6px;
                 box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-                max-width: none;
+                max-width: 100vw;
                 max-height: none;
-                min-height: 800px;
-                width: 1400px;
-                margin: 10px;
-                touch-action: auto;
+                min-height: 600px;
+                width: 100%;
+                margin: 0;
+                touch-action: pan-x pan-y pinch-zoom;
+                overflow: auto;
             }
             
             /* Allow zoom/scroll on game canvas */
