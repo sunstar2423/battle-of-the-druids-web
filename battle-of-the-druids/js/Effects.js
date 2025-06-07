@@ -275,12 +275,14 @@ class BackgroundRenderer {
     }
     
     static drawMenuBackground(scene) {
-        // Try to load menu background image, fallback to gradient
+        // Try to load menubackground image first, then menu, fallback to gradient
         if (!scene.assetManager) {
             scene.assetManager = new AssetManager(scene);
         }
         
-        if (scene.textures.exists('menu')) {
+        if (scene.textures.exists('menubackground')) {
+            scene.assetManager.getBackgroundImage(scene, 'menubackground');
+        } else if (scene.textures.exists('menu')) {
             scene.assetManager.getBackgroundImage(scene, 'menu');
         } else {
             // Fallback to gradient
