@@ -106,6 +106,12 @@
                 touch-action: auto;
             }
             
+            /* Allow zoom/scroll on game canvas */
+            #game-container canvas {
+                touch-action: auto !important;
+                pointer-events: auto;
+            }
+            
             .game-info {
                 font-size: 12px !important;
                 margin-top: 10px !important;

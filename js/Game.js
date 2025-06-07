@@ -40,7 +40,9 @@ const gameConfig = {
     input: {
         keyboard: true,
         mouse: true,
-        touch: true
+        touch: {
+            capture: false  // Allow native touch gestures to pass through
+        }
     },
     render: {
         antialias: true,
