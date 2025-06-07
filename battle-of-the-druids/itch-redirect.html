@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle of the Druids - Loading...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            color: #FFD700;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        h1:hover {
+            color: #FFF700;
+            transform: scale(1.05);
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px 15px;
+                margin: 0 auto;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 10px;
+            }
+            
+            .play-button {
+                font-size: 1.2em !important;
+                padding: 15px 25px !important;
+                margin: 15px 0 !important;
+            }
+            
+            .features {
+                font-size: 0.95em !important;
+                margin: 20px 0 !important;
+            }
+            
+            .note {
+                font-size: 0.8em !important;
+            }
+        }
+        
+        .play-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 3px solid #FFD700;
+        }
+        
+        .play-button:hover {
+            background: linear-gradient(45deg, #20c997, #28a745);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .features {
+            text-align: left;
+            margin: 30px 0;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .features li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .features li:before {
+            content: '⚔️';
+            position: absolute;
+            left: 0;
+        }
+        
+        .note {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #ccc;
+            font-style: italic;
+        }
+        
+        .auto-redirect {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #FFD700;
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+        
+        .spinner {
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            border-top: 3px solid #FFD700;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Battle of the Druids</h1>
+        
+        <div style="margin: 10px 0; font-size: 18px; color: #FFD700; font-weight: bold;">
+            ⚔️ A Titan Blade Games Production ⚔️
+        </div>
+        
+        <p><strong>Complete Turn-Based RPG - Play Free in Your Browser!</strong></p>
+        
+        <div class="features">
+            <ul>
+                <li>4 Character Classes (Knight, Wizard, Rogue, Soldier)</li>
+                <li>Turn-based tactical combat with visual effects</li>
+                <li>Equipment progression system</li>
+                <li>9 diverse battle locations</li>
+                <li>Mobile-friendly touch controls</li>
+                <li>No downloads required - instant play!</li>
+            </ul>
+        </div>
+        
+        <a href="https://titanbladegames.com/" 
+           class="play-button" 
+           target="_blank">
+            🚀 PLAY NOW - FREE!
+        </a>
+        
+        <div class="auto-redirect">
+            <div class="spinner"></div>
+            <p>🎯 <strong>Auto-redirecting in <span id="countdown">10:00</span>...</strong></p>
+            <p>Or click the button above to play immediately!</p>
+        </div>
+        
+        <div class="note">
+            <p>🌟 Built with modern web technology for smooth 60fps gameplay</p>
+            <p>🎮 Session-based gameplay - fresh adventure every time</p>
+            <p>📱 Works on desktop, mobile, and tablet devices</p>
+        </div>
+        
+        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #444; font-size: 14px; color: #bbb;">
+            <p><strong>🏰 Titan Blade Games</strong> - Bringing epic adventures to your browser</p>
+            <p>Visit <a href="https://titanbladegames.com" style="color: #FFD700; text-decoration: none;">titanbladegames.com</a> for more games!</p>
+        </div>
+    </div>
+
+    <script>
+        // Auto-redirect after 10 minutes
+        let countdown = 600;
+        const countdownElement = document.getElementById('countdown');
+        const gameUrl = 'https://titanbladegames.com/';
+        
+        // Function to redirect safely
+        function redirectToGame() {
+            try {
+                // Try different redirect methods for mobile compatibility
+                if (window.top && window.top !== window) {
+                    // If in iframe, try parent redirect
+                    window.top.location.href = gameUrl;
+                } else {
+                    // Standard redirect
+                    window.location.href = gameUrl;
+                }
+            } catch (e) {
+                // Fallback - open in new window
+                window.open(gameUrl, '_blank');
+            }
+        }
+        
+        // Function to format time as MM:SS
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+        
+        // Update initial display
+        if (countdownElement) {
+            countdownElement.textContent = formatTime(countdown);
+        }
+        
+        const timer = setInterval(() => {
+            countdown--;
+            if (countdownElement) {
+                countdownElement.textContent = formatTime(countdown);
+            }
+            
+            if (countdown <= 0) {
+                clearInterval(timer);
+                redirectToGame();
+            }
+        }, 1000);
+        
+        // Manual button click handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const playButton = document.querySelector('.play-button');
+            if (playButton) {
+                playButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Analytics tracking (if available)
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'play_game', { event_category: 'itch_io_redirect' });
+                    }
+                    
+                    redirectToGame();
+                });
+            }
+            
+            // Title click handler
+            const title = document.querySelector('h1');
+            if (title) {
+                title.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Analytics tracking (if available)
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'title_click', { event_category: 'itch_io_redirect' });
+                    }
+                    
+                    redirectToGame();
+                });
+            }
+        });
+        
+        // Analytics tracking (if available)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'itch_io_page_view', {
+                event_category: 'itch_io_redirect'
+            });
+        }
+        
+        // Prevent zoom on double-tap for mobile
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
+</body>
+</html>

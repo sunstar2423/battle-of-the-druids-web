@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes, shrink-to-fit=no, viewport-fit=cover">
+    <title>Battle of the Druids - Free Online RPG Game</title>
+    <meta name="description" content="Play Battle of the Druids - A free turn-based RPG with 4 character classes, tactical combat, equipment progression, and 9 unique locations. Play instantly in your browser!">
+    <meta name="keywords" content="free online rpg, browser game, turn-based combat, fantasy rpg, character classes, online game">
+    <meta name="author" content="CodeCraft Games">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Battle of the Druids - Free Online RPG">
+    <meta property="og:description" content="Epic turn-based RPG with character classes, magical spells, and tactical combat. Play free in your browser!">
+    <meta property="og:url" content="http://battle-of-the-druids-web.s3-website-ap-southeast-2.amazonaws.com/">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Battle of the Druids - Free Online RPG">
+    <meta name="twitter:description" content="Epic turn-based RPG with character classes and tactical combat. Play free!">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELX1WWLJN8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ELX1WWLJN8', {
+            page_title: 'Battle of the Druids',
+            custom_map: {'custom_parameter': 'game_events'}
+        });
+        
+        // Game-specific event tracking
+        function trackGameEvent(action, category = 'Game') {
+            gtag('event', action, {
+                event_category: category,
+                event_label: 'Battle of the Druids'
+            });
+        }
+        
+        // Make tracking function available globally
+        window.trackGameEvent = trackGameEvent;
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            overflow: auto;
+            /* Mobile optimizations */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        /* Mobile: Use full viewport height when ads are hidden */
+        @media (max-width: 768px) {
+            body {
+                min-height: 100vh;
+                align-items: flex-start;
+                padding-top: 10px;
+            }
+        }
+        
+        #game-container {
+            border: 3px solid #34495e;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            background: #000;
+            max-width: 95vw;
+            max-height: 95vh;
+            min-height: 600px;
+        }
+        
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            /* Hide ad spaces on mobile to save screen space */
+            #ad-top, #ad-bottom {
+                display: none !important;
+            }
+            
+            body {
+                padding: 0;
+                margin: 0;
+                overflow: auto;
+                touch-action: pan-x pan-y pinch-zoom;
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior: contain;
+            }
+            
+            #game-container {
+                border: 1px solid #34495e;
+                border-radius: 6px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+                max-width: 100vw;
+                max-height: none;
+                min-height: 600px;
+                width: 100%;
+                margin: 0;
+                touch-action: pan-x pan-y pinch-zoom;
+                overflow: auto;
+            }
+            
+            /* Allow zoom/scroll on game canvas */
+            #game-container canvas {
+                touch-action: auto !important;
+                pointer-events: auto;
+            }
+            
+            .game-info {
+                font-size: 12px !important;
+                margin-top: 10px !important;
+            }
+            
+            .controls {
+                font-size: 10px !important;
+            }
+        }
+        
+        /* Tablet adjustments - smaller ads */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            #ad-top, #ad-bottom {
+                width: 468px !important;
+                height: 60px !important;
+                font-size: 12px;
+            }
+        }
+        
+        .loading {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        
+        .game-info {
+            color: white;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            max-width: 1400px;
+        }
+        
+        .controls {
+            color: #bdc3c7;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- Top Ad Space (728x90 leaderboard) -->
+        <div id="ad-top" style="width: 728px; height: 90px; margin: 10px auto; background: #f0f0f0; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;">
+            Ad Space - 728x90
+        </div>
+        
+        <div id="game-container">
+            <div class="loading">Loading Battle of the Druids...</div>
+        </div>
+        
+        <!-- Bottom Ad Space (728x90 leaderboard) -->
+        <div id="ad-bottom" style="width: 728px; height: 90px; margin: 10px auto; background: #f0f0f0; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;">
+            Ad Space - 728x90
+        </div>
+        
+        <div class="game-info">
+            <strong>Battle of the Druids - Web Edition</strong><br>
+            A complete turn-based RPG with inventory, equipment, magic spells, and epic battles!
+            <div class="controls">
+                Controls: Touch/Mouse to interact • ESC to go back • Enter to confirm
+            </div>
+            <div style="margin-top: 15px; font-size: 12px;">
+                <a href="../" style="color: #FFD700; text-decoration: none; font-weight: bold; margin-right: 15px;">⚔️ TitanBlade Games</a>
+                <a href="privacy-policy.html" style="color: #bdc3c7; text-decoration: none;">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phaser.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+    
+    <!-- Game modules -->
+    <script src="js/GameData.js"></script>
+    <script src="js/Character.js"></script>
+    <script src="js/Equipment.js"></script>
+    <script src="js/Effects.js"></script>
+    <script src="js/Assets.js"></script>
+    <script src="js/scenes/PreloadScene.js"></script>
+    <script src="js/scenes/CharacterSelectionScene.js"></script>
+    <script src="js/scenes/MainMenuScene.js"></script>
+    <script src="js/scenes/WorldMapScene.js"></script>
+    <script src="js/scenes/BattleScene.js"></script>
+    <script src="js/scenes/InventoryScene.js"></script>
+    <script src="js/scenes/StoreScene.js"></script>
+    <script src="js/scenes/StatsScene.js"></script>
+    <script src="js/Game.js"></script>
+</body>
+</html>

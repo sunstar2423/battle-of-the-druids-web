@@ -2,205 +2,388 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes, shrink-to-fit=no, viewport-fit=cover">
-    <title>Battle of the Druids - Free Online RPG Game</title>
-    <meta name="description" content="Play Battle of the Druids - A free turn-based RPG with 4 character classes, tactical combat, equipment progression, and 9 unique locations. Play instantly in your browser!">
-    <meta name="keywords" content="free online rpg, browser game, turn-based combat, fantasy rpg, character classes, online game">
-    <meta name="author" content="CodeCraft Games">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TitanBlade Games - Independent Game Studio</title>
+    <meta name="description" content="TitanBlade Games - Creating epic RPGs and adventure games. Play Battle of the Druids and upcoming titles from our independent game studio.">
+    <meta name="keywords" content="indie games, rpg games, browser games, TitanBlade Games, Battle of the Druids">
+    <meta name="author" content="TitanBlade Games">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Battle of the Druids - Free Online RPG">
-    <meta property="og:description" content="Epic turn-based RPG with character classes, magical spells, and tactical combat. Play free in your browser!">
-    <meta property="og:url" content="http://battle-of-the-druids-web.s3-website-ap-southeast-2.amazonaws.com/">
+    <meta property="og:title" content="TitanBlade Games - Independent Game Studio">
+    <meta property="og:description" content="Creating epic RPGs and adventure games. Play our latest releases and discover upcoming titles.">
+    <meta property="og:url" content="https://titanbladegames.com">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Battle of the Druids - Free Online RPG">
-    <meta name="twitter:description" content="Epic turn-based RPG with character classes and tactical combat. Play free!">
+    <meta name="twitter:title" content="TitanBlade Games - Independent Game Studio">
+    <meta name="twitter:description" content="Creating epic RPGs and adventure games. Play our latest releases!">
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELX1WWLJN8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-ELX1WWLJN8', {
-            page_title: 'Battle of the Druids',
-            custom_map: {'custom_parameter': 'game_events'}
-        });
-        
-        // Game-specific event tracking
-        function trackGameEvent(action, category = 'Game') {
-            gtag('event', action, {
-                event_category: category,
-                event_label: 'Battle of the Druids'
-            });
-        }
-        
-        // Make tracking function available globally
-        window.trackGameEvent = trackGameEvent;
-    </script>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: url('titanbackground.png') center/cover no-repeat, linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: white;
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            font-family: 'Arial', sans-serif;
-            overflow: auto;
-            /* Mobile optimizations */
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
         }
-        
-        /* Mobile: Use full viewport height when ads are hidden */
-        @media (max-width: 768px) {
-            body {
-                min-height: 100vh;
-                align-items: flex-start;
-                padding-top: 10px;
-            }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            z-index: -1;
         }
-        
-        #game-container {
-            border: 3px solid #34495e;
-            border-radius: 12px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-            background: #000;
-            max-width: 95vw;
-            max-height: 95vh;
-            min-height: 600px;
+
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
-        
-        /* Mobile specific adjustments */
-        @media (max-width: 768px) {
-            /* Hide ad spaces on mobile to save screen space */
-            #ad-top, #ad-bottom {
-                display: none !important;
-            }
-            
-            body {
-                padding: 0;
-                margin: 0;
-                overflow: auto;
-                touch-action: pan-x pan-y pinch-zoom;
-                -webkit-overflow-scrolling: touch;
-                overscroll-behavior: contain;
-            }
-            
-            #game-container {
-                border: 1px solid #34495e;
-                border-radius: 6px;
-                box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-                max-width: 100vw;
-                max-height: none;
-                min-height: 600px;
-                width: 100%;
-                margin: 0;
-                touch-action: pan-x pan-y pinch-zoom;
-                overflow: auto;
-            }
-            
-            /* Allow zoom/scroll on game canvas */
-            #game-container canvas {
-                touch-action: auto !important;
-                pointer-events: auto;
-            }
-            
-            .game-info {
-                font-size: 12px !important;
-                margin-top: 10px !important;
-            }
-            
-            .controls {
-                font-size: 10px !important;
-            }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
-        
-        /* Tablet adjustments - smaller ads */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            #ad-top, #ad-bottom {
-                width: 468px !important;
-                height: 60px !important;
-                font-size: 12px;
-            }
+
+        .featured-game {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2rem auto;
+            max-width: 1000px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        
-        .loading {
+
+        .game-header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .game-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #FFD700;
+        }
+
+        .game-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .game-content {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .game-screenshots {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .game-screenshot {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .game-screenshot:hover {
+            transform: scale(1.05);
+        }
+
+        .screenshot-label {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .game-details h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features li:before {
+            content: "⚔️ ";
+            margin-right: 0.5rem;
+        }
+
+        .play-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .play-button:hover {
+            background: linear-gradient(135deg, #229954, #27ae60);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+        }
+
+        .about {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2rem auto;
+            max-width: 800px;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .about p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .coming-soon {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2rem auto;
+            max-width: 800px;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .coming-soon h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
             color: white;
             text-align: center;
-            margin-top: 20px;
-            font-size: 18px;
+            padding: 2rem;
+            margin-top: 4rem;
         }
-        
-        .game-info {
-            color: white;
-            text-align: center;
-            margin-top: 15px;
-            font-size: 14px;
-            max-width: 1400px;
-        }
-        
-        .controls {
-            color: #bdc3c7;
-            font-size: 12px;
-            margin-top: 10px;
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .game-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo-text {
+                font-size: 1.5rem;
+            }
+
+            .logo img {
+                height: 40px;
+            }
         }
     </style>
 </head>
 <body>
-    <div>
-        <!-- Top Ad Space (728x90 leaderboard) -->
-        <div id="ad-top" style="width: 728px; height: 90px; margin: 10px auto; background: #f0f0f0; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;">
-            Ad Space - 728x90
-        </div>
-        
-        <div id="game-container">
-            <div class="loading">Loading Battle of the Druids...</div>
-        </div>
-        
-        <!-- Bottom Ad Space (728x90 leaderboard) -->
-        <div id="ad-bottom" style="width: 728px; height: 90px; margin: 10px auto; background: #f0f0f0; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px;">
-            Ad Space - 728x90
-        </div>
-        
-        <div class="game-info">
-            <strong>Battle of the Druids - Web Edition</strong><br>
-            A complete turn-based RPG with inventory, equipment, magic spells, and epic battles!
-            <div class="controls">
-                Controls: Touch/Mouse to interact • ESC to go back • Enter to confirm
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="titanbladelogo.png" alt="TitanBlade Games Logo">
+                <div class="logo-text">TitanBlade Games</div>
             </div>
-            <div style="margin-top: 15px; font-size: 12px;">
-                <a href="blog.html" style="color: #bdc3c7; text-decoration: none; margin-right: 15px;">Developer Blog</a>
-                <a href="privacy-policy.html" style="color: #bdc3c7; text-decoration: none;">Privacy Policy</a>
-            </div>
-        </div>
-    </div>
+            <ul class="nav-links">
+                <li><a href="#games">Games</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Phaser.js from CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
-    
-    <!-- Game modules -->
-    <script src="js/GameData.js"></script>
-    <script src="js/Character.js"></script>
-    <script src="js/Equipment.js"></script>
-    <script src="js/Effects.js"></script>
-    <script src="js/Assets.js"></script>
-    <script src="js/scenes/PreloadScene.js"></script>
-    <script src="js/scenes/CharacterSelectionScene.js"></script>
-    <script src="js/scenes/MainMenuScene.js"></script>
-    <script src="js/scenes/WorldMapScene.js"></script>
-    <script src="js/scenes/BattleScene.js"></script>
-    <script src="js/scenes/InventoryScene.js"></script>
-    <script src="js/scenes/StoreScene.js"></script>
-    <script src="js/scenes/StatsScene.js"></script>
-    <script src="js/Game.js"></script>
+    <main>
+        <section class="hero">
+            <video class="hero-video" autoplay muted loop>
+                <source src="titanvideo.mp4" type="video/mp4">
+            </video>
+            <h1>Epic Adventures Await</h1>
+            <p>Welcome to TitanBlade Games - where we craft immersive RPGs and unforgettable gaming experiences. Join thousands of players in our magical worlds.</p>
+        </section>
+
+        <section id="games" class="featured-game">
+            <div class="game-header">
+                <h2>Battle of the Druids</h2>
+                <p>Our flagship turn-based RPG adventure</p>
+            </div>
+            <div class="game-content">
+                <div class="game-screenshots">
+                    <div>
+                        <img src="bodworldmap.png" alt="Battle of the Druids - World Map" class="game-screenshot">
+                        <div class="screenshot-label">Epic World Map with 9 Locations</div>
+                    </div>
+                    <div>
+                        <img src="druidstats.png" alt="Battle of the Druids - Character Stats" class="game-screenshot">
+                        <div class="screenshot-label">Character Progression & Stats</div>
+                    </div>
+                </div>
+                <div class="game-details">
+                    <h3>Features</h3>
+                    <ul class="features">
+                        <li>4 unique character classes with distinct abilities</li>
+                        <li>Turn-based tactical combat system</li>
+                        <li>Equipment progression and customization</li>
+                        <li>9 diverse battle locations to explore</li>
+                        <li>Complete save system with multiple slots</li>
+                        <li>Mobile-friendly - play anywhere</li>
+                        <li>No downloads, ads, or registration required</li>
+                    </ul>
+                    <a href="battle-of-the-druids/" class="play-button">Play Now - Free!</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About TitanBlade Games</h2>
+            <p>TitanBlade Games is an independent game studio dedicated to creating epic RPG experiences that capture the magic of classic adventure gaming.</p>
+            
+            <p>Our journey began with a passion for storytelling and turn-based strategy. As first-time developers, we believe that great games come from genuine enthusiasm and attention to player experience.</p>
+            
+            <p>Every game we create is designed to be accessible, engaging, and completely free to play - because we believe amazing adventures should be available to everyone.</p>
+        </section>
+
+        <section class="coming-soon">
+            <h2>More Adventures Coming Soon</h2>
+            <p>We're hard at work crafting new worlds and epic quests. Stay tuned for upcoming releases that will expand the TitanBlade Games universe!</p>
+            <p style="font-style: italic; color: #666; margin-top: 1.5rem;">Follow us for updates on new games, features, and behind-the-scenes development insights.</p>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>&copy; 2024 TitanBlade Games. All rights reserved.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+            Independent game studio crafting epic adventures
+        </p>
+    </footer>
 </body>
 </html>
