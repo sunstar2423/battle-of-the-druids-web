@@ -177,10 +177,31 @@ class AssetManager {
         return false;
     }
     
+    // Stop all background music
+    stopAllMusic(scene) {
+        try {
+            if (scene.sound) {
+                // Stop all sounds that are playing
+                scene.sound.sounds.forEach(sound => {
+                    if (sound.key === 'menu_music' || sound.key === 'world_music' || sound.key === 'background_music') {
+                        sound.stop();
+                    }
+                });
+                console.log('🎵 Stopped all background music');
+            }
+        } catch (error) {
+            console.warn('🎵 Error stopping music:', error);
+        }
+    }
+
     // Play background music
     playBackgroundMusic(scene, loop = true, volume = 0.3, trackName = 'background_music') {
         try {
             console.log(`🎵 Attempting to play background music: ${trackName}`);
+            
+            // Stop any existing background music first
+            this.stopAllMusic(scene);
+            
             console.log(`🎵 Scene.sound exists:`, !!scene.sound);
             console.log(`🎵 ${trackName} exists:`, scene.cache.audio.exists(trackName));
             
