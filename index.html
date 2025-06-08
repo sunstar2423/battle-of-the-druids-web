@@ -20,6 +20,17 @@
     <meta name="twitter:title" content="TitanBlade Games - Independent Game Studio">
     <meta name="twitter:description" content="Creating epic RPGs and adventure games. Play our latest releases!">
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELX1WWLJN8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ELX1WWLJN8', {
+            page_title: 'TitanBlade Games - Main Site'
+        });
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -279,6 +290,13 @@
             margin-top: 4rem;
         }
 
+        .community-link:hover {
+            background-color: #FFD700;
+            color: #000 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -380,6 +398,19 @@
     </main>
 
     <footer id="contact">
+        <div style="margin-bottom: 2rem;">
+            <h3 style="color: #FFD700; margin-bottom: 1rem; font-size: 1.2rem;">Join Our Community</h3>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <a href="https://titanbladegames.itch.io" target="_blank" rel="noopener noreferrer" 
+                   class="community-link" style="color: #FFD700; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #FFD700; border-radius: 5px; transition: all 0.3s;">
+                    🎮 Play on itch.io
+                </a>
+                <a href="https://www.reddit.com/r/WebGames/" target="_blank" rel="noopener noreferrer" 
+                   class="community-link" style="color: #FFD700; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #FFD700; border-radius: 5px; transition: all 0.3s;">
+                    🕹️ Discover more on r/WebGames
+                </a>
+            </div>
+        </div>
         <p>&copy; 2024 TitanBlade Games. All rights reserved.</p>
         <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
             Independent game studio crafting epic adventures
