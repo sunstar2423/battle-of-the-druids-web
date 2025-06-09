@@ -297,6 +297,21 @@
             box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
         }
 
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -346,7 +361,49 @@
                 <source src="titanvideo.mp4" type="video/mp4">
             </video>
             <h1>Epic Adventures Await</h1>
-            <p>Welcome to TitanBlade Games - where we craft immersive RPGs and unforgettable gaming experiences. Join thousands of players in our magical worlds.</p>
+            <p>Welcome to TitanBlade Games - where we craft immersive RPGs and unforgettable gaming experiences. Now featuring TWO complete games: the turn-based "Battle of the Druids" and our brand-new "Isle of Adventure"!</p>
+        </section>
+
+        <!-- NEW RELEASE ANNOUNCEMENT -->
+        <section class="featured-game" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.95)); border: 3px solid #FFD700;">
+            <div class="game-header" style="background: linear-gradient(135deg, #FF6B35, #F7931E);">
+                <h2 style="color: white;">🆕 NEW RELEASE: Isle of Adventure</h2>
+                <p style="color: white;">Just launched! Our latest point-and-click adventure game</p>
+            </div>
+            <div class="game-content">
+                <div class="game-screenshots">
+                    <div>
+                        <img src="isle-of-adventure/images/villagess.png" alt="Isle of Adventure - Village Scene" class="game-screenshot">
+                        <div class="screenshot-label">Explore the charming village</div>
+                    </div>
+                    <div>
+                        <img src="isle-of-adventure/images/sorcererss.png" alt="Isle of Adventure - Sorcerer Scene" class="game-screenshot">
+                        <div class="screenshot-label">Meet mystical characters</div>
+                    </div>
+                </div>
+                <div class="game-details">
+                    <h3>🌟 Brand New Adventure!</h3>
+                    <ul class="features">
+                        <li>Point-and-click adventure gameplay</li>
+                        <li>Rich storytelling with witty dialogue options</li>
+                        <li>Beautiful hand-crafted scenes and characters</li>
+                        <li>Epic boss battles against trolls, ogres, and sea creatures</li>
+                        <li>Immersive soundtrack and sound effects</li>
+                        <li>Auto-save system and seamless progression</li>
+                        <li>Full opening credits video and victory sequences</li>
+                    </ul>
+                    <a href="isle-of-adventure/" class="play-button" style="background: linear-gradient(135deg, #FF6B35, #F7931E); animation: pulse 2s infinite;">▶️ Play Isle of Adventure Now!</a>
+                </div>
+            </div>
+            <div style="padding: 1rem 2rem; background: rgba(255, 215, 0, 0.1); text-align: center;">
+                <video controls style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);">
+                    <source src="isle-of-adventure/images/welcomevideo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div style="margin-top: 1rem; font-style: italic; color: #666;">
+                    Watch the opening credits sequence featuring professional TitanBlade Games branding
+                </div>
+            </div>
         </section>
 
         <section id="games" class="featured-game">
@@ -391,9 +448,9 @@
         </section>
 
         <section class="coming-soon">
-            <h2>More Adventures Coming Soon</h2>
-            <p>We're hard at work crafting new worlds and epic quests. Stay tuned for upcoming releases that will expand the TitanBlade Games universe!</p>
-            <p style="font-style: italic; color: #666; margin-top: 1.5rem;">Follow us for updates on new games, features, and behind-the-scenes development insights.</p>
+            <h2>Two Epic Games Now Available!</h2>
+            <p>TitanBlade Games now features TWO complete gaming experiences: our flagship turn-based RPG "Battle of the Druids" and our brand-new point-and-click adventure "Isle of Adventure". Both games are completely free to play!</p>
+            <p style="font-style: italic; color: #666; margin-top: 1.5rem;">More adventures are in development. Follow us for updates on new games, features, and behind-the-scenes development insights.</p>
         </section>
     </main>
 

@@ -34,6 +34,6 @@ jobs:
       run: |
         aws s3 sync . s3://battle-of-the-druids-web --delete --exclude ".git/*" --exclude ".github/*" --exclude "*.md" --exclude "requirements.txt" --exclude "main.py" --exclude "Battle*"
         
-    - name: Invalidate CloudFront cache
+    - name: Invalidate CloudFront cache (HTML files only)
       run: |
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/index.html" "/battle-of-the-druids/index.html"

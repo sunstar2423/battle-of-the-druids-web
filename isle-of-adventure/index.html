@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isle of Adventure</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        #game-container {
+            border: 2px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        #inventory {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 200px;
+            font-size: 12px;
+        }
+        #inventory h3 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+        }
+        #inventory-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #inventory-list li {
+            margin: 2px 0;
+        }
+        #music-credits {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ccc;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 10px;
+            max-width: 300px;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="inventory">
+            <h3>Inventory</h3>
+            <ul id="inventory-list"></ul>
+        </div>
+        <div id="music-credits">
+            Music: "Serene Journey" & "Run to the Dream" by Lite Saturation (Free Music Archive, CC BY-ND)
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+    <script type="module" src="js/Game.js"></script>
+</body>
+</html>
