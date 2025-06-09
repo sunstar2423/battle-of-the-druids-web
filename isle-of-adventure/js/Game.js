@@ -28,8 +28,16 @@ class Game {
             parent: 'game-container',
             backgroundColor: '#2c3e50',
             scale: {
-                mode: Phaser.Scale.NONE,
-                autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
+                mode: Phaser.Scale.FIT,
+                autoCenter: Phaser.Scale.CENTER_BOTH,
+                min: {
+                    width: 320,
+                    height: 240
+                },
+                max: {
+                    width: SCREEN_WIDTH,
+                    height: SCREEN_HEIGHT
+                }
             },
             input: {
                 keyboard: true,
@@ -60,6 +68,28 @@ class Game {
         
         this.game = new Phaser.Game(this.config);
         this.game.registry.set('gameState', this.gameState);
+        
+        // Comprehensive mobile touch configuration
+        this.game.events.once('ready', () => {
+            // Ensure canvas allows native touch gestures
+            if (this.game.canvas) {
+                this.game.canvas.style.touchAction = 'auto';
+                this.game.canvas.style.pointerEvents = 'auto';
+                this.game.canvas.style.webkitTouchCallout = 'default';
+                this.game.canvas.style.webkitUserSelect = 'auto';
+                
+                // Prevent Phaser from blocking certain touch events
+                this.game.canvas.addEventListener('touchstart', (e) => {
+                    if (e.touches.length > 1) {
+                        // Allow multi-touch gestures (pinch-to-zoom)
+                        e.stopPropagation();
+                    }
+                }, { passive: true });
+                
+                // For debugging
+                console.log('Mobile touch configuration applied for zoom/scroll');
+            }
+        });
         
         // Create global music manager that will be accessible to all scenes
         this.musicManager = null;
