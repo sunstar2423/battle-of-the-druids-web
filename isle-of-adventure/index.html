@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes, shrink-to-fit=no, viewport-fit=cover">
     <title>Isle of Adventure</title>
     <style>
         body {
@@ -15,6 +15,10 @@
             min-height: 100vh;
             font-family: Arial, sans-serif;
             overflow: auto;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
             -webkit-overflow-scrolling: touch;
         }
         #game-container {
@@ -23,6 +27,27 @@
             overflow: visible;
             margin: 20px;
             position: relative;
+        }
+        
+        /* Mobile-specific touch handling */
+        @media (max-width: 768px) {
+            body {
+                overflow: auto;
+                touch-action: pan-x pan-y pinch-zoom;
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior: contain;
+            }
+            
+            #game-container {
+                touch-action: pan-x pan-y pinch-zoom;
+                overflow: auto;
+            }
+            
+            /* Critical: Allow zoom/scroll on game canvas */
+            #game-container canvas {
+                touch-action: auto !important;
+                pointer-events: auto;
+            }
         }
         
         /* Allow the game to be larger than viewport for zooming */

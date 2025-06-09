@@ -32,9 +32,11 @@ class Game {
                 autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
             },
             input: {
-                activePointers: 3,
-                touch: true,
-                mouse: true
+                keyboard: true,
+                mouse: true,
+                touch: {
+                    capture: false  // Allow native touch gestures to pass through
+                }
             },
             scene: [
                 PreloadScene,
