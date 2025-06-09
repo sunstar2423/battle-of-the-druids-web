@@ -27,6 +27,15 @@ class Game {
             height: SCREEN_HEIGHT,
             parent: 'game-container',
             backgroundColor: '#2c3e50',
+            scale: {
+                mode: Phaser.Scale.NONE,
+                autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
+            },
+            input: {
+                activePointers: 3,
+                touch: true,
+                mouse: true
+            },
             scene: [
                 PreloadScene,
                 MainMenuScene,

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Isle of Adventure</title>
     <style>
         body {
@@ -14,11 +14,22 @@
             align-items: center;
             min-height: 100vh;
             font-family: Arial, sans-serif;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
         }
         #game-container {
             border: 2px solid #333;
             border-radius: 10px;
-            overflow: hidden;
+            overflow: visible;
+            margin: 20px;
+            position: relative;
+        }
+        
+        /* Allow the game to be larger than viewport for zooming */
+        canvas {
+            display: block;
+            margin: 0 auto;
+            touch-action: auto;
         }
         #inventory {
             position: absolute;
