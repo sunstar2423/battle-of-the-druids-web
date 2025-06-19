@@ -1,5 +1,14 @@
-// World Map Scene for Battle of the Druids
-// Shows all battle locations and allows player to select them
+/*
+ * Battle of the Druids - Web Edition
+ * WorldMapScene.js
+ * 
+ * Copyright (c) 2025 TitanBlade Games
+ * 
+ * This file is part of Battle of the Druids, licensed under the MIT License.
+ * See LICENSE file in the project root for full license information.
+ * 
+ * https://github.com/sunstar2423/titanblade-games
+ */
 
 class WorldMapScene extends Phaser.Scene {
     constructor() {

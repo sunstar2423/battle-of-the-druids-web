@@ -1,5 +1,14 @@
-// Asset Management System for Battle of the Druids Web Edition
-// Handles loading and fallback for images and sounds
+/*
+ * Battle of the Druids - Web Edition
+ * Assets.js
+ * 
+ * Copyright (c) 2025 TitanBlade Games
+ * 
+ * This file is part of Battle of the Druids, licensed under the MIT License.
+ * See LICENSE file in the project root for full license information.
+ * 
+ * https://github.com/sunstar2423/titanblade-games
+ */
 
 class AssetManager {
     constructor(scene = null) {

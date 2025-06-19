@@ -1,3 +1,15 @@
+/*
+ * Battle of the Druids - Web Edition
+ * GameData.js
+ * 
+ * Copyright (c) 2025 TitanBlade Games
+ * 
+ * This file is part of Battle of the Druids, licensed under the MIT License.
+ * See LICENSE file in the project root for full license information.
+ * 
+ * https://github.com/sunstar2423/titanblade-games
+ */
+
 const SCREEN_WIDTH = 1024;
 const SCREEN_HEIGHT = 768;
 

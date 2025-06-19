@@ -1,5 +1,14 @@
-// Store Scene for Battle of the Druids
-// Equipment and item purchasing system
+/*
+ * Battle of the Druids - Web Edition
+ * StoreScene.js
+ * 
+ * Copyright (c) 2025 TitanBlade Games
+ * 
+ * This file is part of Battle of the Druids, licensed under the MIT License.
+ * See LICENSE file in the project root for full license information.
+ * 
+ * https://github.com/sunstar2423/titanblade-games
+ */
 
 class StoreScene extends Phaser.Scene {
     constructor() {

@@ -1,5 +1,14 @@
-// Main Menu Scene for Battle of the Druids
-// Central hub for all game activities
+/*
+ * Battle of the Druids - Web Edition
+ * MainMenuScene.js
+ * 
+ * Copyright (c) 2025 TitanBlade Games
+ * 
+ * This file is part of Battle of the Druids, licensed under the MIT License.
+ * See LICENSE file in the project root for full license information.
+ * 
+ * https://github.com/sunstar2423/titanblade-games
+ */
 
 class MainMenuScene extends Phaser.Scene {
     constructor() {

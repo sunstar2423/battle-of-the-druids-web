@@ -1,5 +1,14 @@
-// Battle Scene for Battle of the Druids
-// Turn-based combat with characters, spells, and effects
+/*
+ * Battle of the Druids - Web Edition
+ * BattleScene.js
+ * 
+ * Copyright (c) 2025 TitanBlade Games
+ * 
+ * This file is part of Battle of the Druids, licensed under the MIT License.
+ * See LICENSE file in the project root for full license information.
+ * 
+ * https://github.com/sunstar2423/titanblade-games
+ */
 
 class BattleScene extends Phaser.Scene {
     constructor() {

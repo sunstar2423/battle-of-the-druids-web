@@ -1,5 +1,14 @@
-// Visual effects system for Battle of the Druids
-// Damage numbers, attack effects, and screen shake
+/*
+ * Battle of the Druids - Web Edition
+ * Effects.js
+ * 
+ * Copyright (c) 2025 TitanBlade Games
+ * 
+ * This file is part of Battle of the Druids, licensed under the MIT License.
+ * See LICENSE file in the project root for full license information.
+ * 
+ * https://github.com/sunstar2423/titanblade-games
+ */
 
 class DamageNumber {
     constructor(scene, x, y, damage, isSpecial = false, isHeal = false) {

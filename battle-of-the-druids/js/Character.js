@@ -1,5 +1,14 @@
-// Character class for players and enemies
-// Converted from Python Battle of the Druids
+/*
+ * Battle of the Druids - Web Edition
+ * Character.js
+ * 
+ * Copyright (c) 2025 TitanBlade Games
+ * 
+ * This file is part of Battle of the Druids, licensed under the MIT License.
+ * See LICENSE file in the project root for full license information.
+ * 
+ * https://github.com/sunstar2423/titanblade-games
+ */
 
 class Character {
     constructor(charType, name = "Unknown", isEnemy = false, enemyType = "goblin") {

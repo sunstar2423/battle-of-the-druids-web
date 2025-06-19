@@ -1,3 +1,16 @@
+#!/usr/bin/env python3
+"""
+Battle of the Druids - Python/Pygame Version
+Original turn-based RPG game implementation
+
+Copyright (c) 2025 TitanBlade Games
+
+This file is part of Battle of the Druids, licensed under the MIT License.
+See LICENSE file in the project root for full license information.
+
+https://github.com/sunstar2423/titanblade-games
+"""
+
 import pygame
 import random
 import sys
