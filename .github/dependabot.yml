@@ -1,0 +1,49 @@
+version: 2
+updates:
+  # Enable version updates for npm (for any future package.json files)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "sunstar2423"
+    assignees:
+      - "sunstar2423"
+    commit-message:
+      prefix: "npm"
+      include: "scope"
+
+  # Enable version updates for pip (Python dependencies)
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "sunstar2423"
+    assignees:  
+      - "sunstar2423"
+    commit-message:
+      prefix: "pip"
+      include: "scope"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "sunstar2423"
+    assignees:
+      - "sunstar2423"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
