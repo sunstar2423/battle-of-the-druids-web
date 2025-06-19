@@ -1,9 +1,9 @@
-name: Enhanced Deploy to AWS S3
+name: Deploy to AWS S3 (Legacy/Backup)
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 0'  # Weekly backup on Sunday at 6 AM UTC
 
 env:
   AWS_REGION: ap-southeast-2
