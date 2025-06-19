@@ -21,12 +21,12 @@
     <meta name="twitter:description" content="Epic turn-based RPG with character classes and tactical combat. Play free!">
     
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELX1WWLJN8"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{GOOGLE_ANALYTICS_ID}}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-ELX1WWLJN8', {
+        gtag('config', '{{GOOGLE_ANALYTICS_ID}}', {
             page_title: 'Battle of the Druids',
             custom_map: {'custom_parameter': 'game_events'}
         });

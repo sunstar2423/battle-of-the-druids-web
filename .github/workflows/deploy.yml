@@ -17,6 +17,21 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Build HTML files with environment variables
+      run: |
+        # Set environment variables for build
+        export GOOGLE_ANALYTICS_ID="${{ secrets.GOOGLE_ANALYTICS_ID }}"
+        export SITE_URL="${{ secrets.SITE_URL || 'https://titanbladegames.com' }}"
+        export CONTACT_EMAIL="${{ secrets.CONTACT_EMAIL || 'contact@titanbladegames.com' }}"
+        
+        # Run build script to inject environment variables
+        node build-env.js
+        
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
