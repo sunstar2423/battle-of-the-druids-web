@@ -1,0 +1,65 @@
+name: Question
+description: Ask a question about Titanblade Games
+title: "[QUESTION] "
+labels: ["question", "help-wanted"]
+assignees: ["sunstar2423"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question about our games? We're here to help!
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Question Category
+      description: What type of question is this?
+      options:
+        - Gameplay - How to play or game mechanics
+        - Technical - Installation, performance, or technical issues
+        - Development - Code, contributing, or development questions
+        - General - About the games or Titanblade Games
+    validations:
+      required: true
+
+  - type: dropdown
+    id: game
+    attributes:
+      label: Which game is your question about?
+      description: Select the relevant game (if applicable)
+      options:
+        - Battle of the Druids (Web)
+        - Isle of Adventure
+        - Doom Riders
+        - General / All games
+        - Not game-specific
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: Ask your question in detail
+      placeholder: What would you like to know?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any additional information that might help us answer your question
+      placeholder: |
+        - What have you already tried?
+        - Where did you look for the answer?
+        - Any relevant screenshots or error messages?
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before asking
+      description: Please confirm you've done the following
+      options:
+        - label: I've checked the README and documentation
+        - label: I've searched existing issues for similar questions
+        - label: This question is specific and clear

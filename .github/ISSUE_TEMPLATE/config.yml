@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🎮 Play Battle of the Druids
+    url: http://battle-of-the-druids-web.s3-website-ap-southeast-2.amazonaws.com/
+    about: Play the live web version of Battle of the Druids
+  - name: 📚 Documentation
+    url: https://github.com/sunstar2423/titanblade-games/wiki
+    about: Check the game documentation and guides
+  - name: 💬 Discussions
+    url: https://github.com/sunstar2423/titanblade-games/discussions
+    about: Join community discussions about the games

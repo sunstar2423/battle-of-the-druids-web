@@ -1,0 +1,77 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for Titanblade Games
+title: "[FEATURE] "
+labels: ["enhancement", "feature-request"]
+assignees: ["sunstar2423"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! Your ideas help make our games better.
+
+  - type: dropdown
+    id: game
+    attributes:
+      label: Which game would this feature apply to?
+      description: Select the game you'd like to see enhanced
+      options:
+        - Battle of the Druids (Web)
+        - Isle of Adventure  
+        - Doom Riders
+        - All games / General
+        - New game idea
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature-summary
+    attributes:
+      label: Feature Summary
+      description: A brief summary of the feature you'd like to see
+      placeholder: What would you like to add or improve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-solution
+    attributes:
+      label: Problem & Solution
+      description: What problem does this feature solve? How would it work?
+      placeholder: |
+        **Problem:** What issue or limitation does this address?
+        **Solution:** How would this feature work and solve the problem?
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: Describe how you would use this feature
+      placeholder: Walk us through how you'd use this feature in the game
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature to you?
+      options:
+        - Low - Nice to have
+        - Medium - Would improve my experience
+        - High - Essential for my enjoyment
+        - Critical - Needed for accessibility
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Are there other ways to solve this problem?
+      placeholder: Have you considered any alternative approaches?
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information, mockups, or examples
+      placeholder: Screenshots, links to similar features, or other relevant information

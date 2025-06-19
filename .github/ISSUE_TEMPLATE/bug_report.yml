@@ -1,0 +1,89 @@
+name: Bug Report
+description: Report a bug or issue with any of the Titanblade Games
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+assignees: ["sunstar2423"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the information below to help us resolve the issue.
+
+  - type: dropdown
+    id: game
+    attributes:
+      label: Which game is affected?
+      description: Select the game where you encountered the bug
+      options:
+        - Battle of the Druids (Web)
+        - Isle of Adventure
+        - Doom Riders
+        - Not sure / Multiple games
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: Describe what happened and what you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What should have happened instead?
+      placeholder: A clear description of what you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem
+      placeholder: Drag and drop or paste screenshots here
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser (Web Games)
+      description: Which browser are you using? (Skip if not a web game)
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Mobile browser
+        - Other
+
+  - type: input
+    id: device
+    attributes:
+      label: Device/Platform
+      description: What device are you using?
+      placeholder: e.g., Windows 10, iPhone 12, Android tablet
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here
+      placeholder: Any additional information that might help us understand the issue
