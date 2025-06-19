@@ -113,7 +113,7 @@ export default class CreditsScene extends Phaser.Scene {
         }).setOrigin(0.5).setDepth(10);
 
         // Developer credit (bottom left)
-        this.add.text(50, SCREEN_HEIGHT - 180, 'Developed by', {
+        this.add.text(50, SCREEN_HEIGHT - 200, 'Created by', {
             fontSize: '14px',
             fill: '#FFFFFF',
             fontFamily: 'Arial',
@@ -121,7 +121,7 @@ export default class CreditsScene extends Phaser.Scene {
             strokeThickness: 2
         }).setOrigin(0, 0.5).setDepth(10);
 
-        this.add.text(50, SCREEN_HEIGHT - 160, 'TitanBlade Games', {
+        this.add.text(50, SCREEN_HEIGHT - 180, 'TitanBlade Games', {
             fontSize: '18px',
             fill: '#4ECDC4',
             fontFamily: 'Arial',
@@ -130,25 +130,42 @@ export default class CreditsScene extends Phaser.Scene {
             fontWeight: 'bold'
         }).setOrigin(0, 0.5).setDepth(10);
 
-        this.add.text(50, SCREEN_HEIGHT - 140, 'titanbladegames.com', {
-            fontSize: '12px',
-            fill: '#CCCCCC',
+        this.add.text(50, SCREEN_HEIGHT - 160, '& Open Source Contributors', {
+            fontSize: '14px',
+            fill: '#FFD700',
             fontFamily: 'Arial',
             stroke: '#000000',
             strokeThickness: 2
         }).setOrigin(0, 0.5).setDepth(10);
 
-        // Copyright notice (bottom right)
+        this.add.text(50, SCREEN_HEIGHT - 140, 'github.com/sunstar2423/titanblade-games', {
+            fontSize: '11px',
+            fill: '#CCCCCC',
+            fontFamily: 'Arial',
+            stroke: '#000000',
+            strokeThickness: 1
+        }).setOrigin(0, 0.5).setDepth(10);
+
+        // Open Source notice (bottom right)
         const currentYear = new Date().getFullYear();
-        this.add.text(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 180, `© ${currentYear} TitanBlade Games`, {
-            fontSize: '12px',
+        this.add.text(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 200, 'Open Source Game', {
+            fontSize: '14px',
+            fill: '#66FF66',
+            fontFamily: 'Arial',
+            stroke: '#000000',
+            strokeThickness: 2,
+            fontWeight: 'bold'
+        }).setOrigin(1, 0.5).setDepth(10);
+
+        this.add.text(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 180, `© ${currentYear} TitanBlade Games & Contributors`, {
+            fontSize: '11px',
             fill: '#FFFFFF',
             fontFamily: 'Arial',
             stroke: '#000000',
             strokeThickness: 2
         }).setOrigin(1, 0.5).setDepth(10);
 
-        this.add.text(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 160, 'All Rights Reserved', {
+        this.add.text(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 160, 'Licensed under MIT License', {
             fontSize: '10px',
             fill: '#CCCCCC',
             fontFamily: 'Arial',
@@ -156,9 +173,9 @@ export default class CreditsScene extends Phaser.Scene {
             strokeThickness: 2
         }).setOrigin(1, 0.5).setDepth(10);
 
-        this.add.text(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 140, 'Licensed under Creative Commons', {
-            fontSize: '8px',
-            fill: '#CCCCCC',
+        this.add.text(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 140, 'Free to use, modify & distribute', {
+            fontSize: '9px',
+            fill: '#AAFFAA',
             fontFamily: 'Arial',
             stroke: '#000000',
             strokeThickness: 1
